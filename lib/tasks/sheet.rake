@@ -6,7 +6,7 @@ ALL_URLS = ['Drama', 'Comedy', 'Miniseries', 'Adult Animation', 'Anime', 'Kids A
 namespace :import do
     desc "Get Show Data"
     task shows: :environment do
-        session = GoogleDrive::Session.from_service_account_key("client_secret.json")
+        session = GoogleDrive::Session.from_service_account_key("client_secrets.json")
         spreadsheet = session.spreadsheet_by_title("Ended")
         ALL_URLS.each do |url|
             worksheet = spreadsheet.worksheet_by_title(url)
@@ -35,7 +35,7 @@ namespace :import do
 
     desc "Update Show Data"
     task update: :environment do
-        session = GoogleDrive::Session.from_service_account_key("client_secret.json")
+        session = GoogleDrive::Session.from_service_account_key("client_secrets.json")
         spreadsheet = session.spreadsheet_by_title("Ended")
         ALL_URLS.each do |url|
             worksheet = spreadsheet.worksheet_by_title(url)
