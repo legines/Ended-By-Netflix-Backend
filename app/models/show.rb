@@ -30,7 +30,7 @@ class Show < ApplicationRecord
     def image_url
         return unless artwork.attached?
 
-        image_url = "http://localhost:3000/#{rails_blob_path(artwork, disposition: 'attachment', only_path: true)}"
+        image_url = "https://ended-by-netflix-backend.herokuapp.com#{rails_blob_path(artwork, disposition: 'attachment', only_path: true)}"
         image_url
     end
 end
